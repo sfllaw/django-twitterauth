@@ -19,8 +19,8 @@ INSTALLATION
 	Clone/download and place in the root of your Django project:
 
 		$ cd $YOUR_DJANGO_PROJECT
-		$ git clone git://github.com/rcrowley/django-twitterauth.git auth
-		$ echo auth >> .gitignore
+		$ git clone git://github.com/rcrowley/django-twitterauth.git twitterauth
+		$ echo twitterauth >> .gitignore
 
 	You'll need to add this app to your settings.py file in the
 	INSTALLED_APPS section.  You'll also need these two extra lines:
@@ -31,13 +31,18 @@ INSTALLATION
 	Setup the URLs for the auth app.  The names of the URLs are required.
 	For example:
 
-		url(r'^info/?$', 'auth.views.info', name='auth_info'),
-		url(r'^login/?$', 'auth.views.login', name='auth_login'),
-		url(r'^login/callback/?$', 'auth.views.callback', name='auth_callback'),
-		url(r'^logout/?$', 'auth.views.logout', name='auth_logout'),
+		url(r'^info/?$', 'twitterauth.views.info',
+		    name='auth_info'),
+		url(r'^login/?$', 'twitterauth.views.login',
+		    name='auth_login'),
+		url(r'^login/callback/?$', 'twitterauth.views.callback',
+		    name='auth_callback'),
+		url(r'^logout/?$', 'twitterauth.views.logout',
+		    name='auth_logout'),
 
 	Again, the names of the URLs are required.  I chose not to create
-	auth/urls.py because URLs like /auth/login et cetera seems awful.
+	twitterauth/urls.py because URLs like /auth/login et cetera seems
+	awful.
 
 	Make sure to run `python manage.py syncdb` to create the User model.
 
